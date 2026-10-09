@@ -1,0 +1,13 @@
+Command (as provided):
+curl -s https://api.github.com/repos/Siyamthanda101/expressBookReviews | jq '.parent.full_name'
+
+Output:
+null
+
+Note: The unauthenticated GitHub API request was rate-limited, so this null does not indicate that the repository has no parent.
+
+Authenticated verification command:
+curl -sS -H "Authorization: Bearer $(gh auth token)" https://api.github.com/repos/Siyamthanda101/expressBookReviews | jq '.parent.full_name'
+
+Output:
+"ibm-developer-skills-network/expressBookReviews"
