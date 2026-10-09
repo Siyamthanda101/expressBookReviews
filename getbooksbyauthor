@@ -1,0 +1,6 @@
+Command:
+curl -sS -w '\nHTTP status: %{http_code}\n' 'http://localhost:5000/author/Chinua%20Achebe'
+
+Output:
+{"1":{"author":"Chinua Achebe","title":"Things Fall Apart","reviews":{}}}
+HTTP status: 200

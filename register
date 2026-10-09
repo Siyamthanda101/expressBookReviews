@@ -1,0 +1,23 @@
+Successful registration:
+Command:
+curl -sS -w '\nHTTP status: %{http_code}\n' -X POST -H 'Content-Type: application/json' -d '{"username":"option1_user","password":"bookpass123"}' http://localhost:5000/register
+
+Output:
+{"message":"User successfully registered"}
+HTTP status: 201
+
+Duplicate username:
+Command:
+curl -sS -w '\nHTTP status: %{http_code}\n' -X POST -H 'Content-Type: application/json' -d '{"username":"option1_user","password":"bookpass123"}' http://localhost:5000/register
+
+Output:
+{"message":"Username already exists"}
+HTTP status: 409
+
+Missing username and password:
+Command:
+curl -sS -w '\nHTTP status: %{http_code}\n' -X POST -H 'Content-Type: application/json' -d '{}' http://localhost:5000/register
+
+Output:
+{"message":"Username and password are required"}
+HTTP status: 400

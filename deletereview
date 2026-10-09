@@ -1,0 +1,6 @@
+Command:
+curl -sS -b /tmp/bookshop-user1.cookies -c /tmp/bookshop-user1.cookies -w '\nHTTP status: %{http_code}\n' -X DELETE http://localhost:5000/customer/auth/review/1
+
+Output:
+{"message":"Review deleted","reviews":{"option1_second":"Another reader's perspective."}}
+HTTP status: 200

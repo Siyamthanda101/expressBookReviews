@@ -1,0 +1,23 @@
+Add a review as option1_user:
+Command:
+curl -sS -b /tmp/bookshop-user1.cookies -c /tmp/bookshop-user1.cookies -w '\nHTTP status: %{http_code}\n' -X PUT 'http://localhost:5000/customer/auth/review/1?review=A%20compelling%20classic.'
+
+Output:
+{"message":"Review added or updated","reviews":{"option1_user":"A compelling classic."}}
+HTTP status: 200
+
+Update the same user's review:
+Command:
+curl -sS -b /tmp/bookshop-user1.cookies -c /tmp/bookshop-user1.cookies -w '\nHTTP status: %{http_code}\n' -X PUT 'http://localhost:5000/customer/auth/review/1?review=Updated%20after%20rereading.'
+
+Output:
+{"message":"Review added or updated","reviews":{"option1_user":"Updated after rereading."}}
+HTTP status: 200
+
+Add a separate review as option1_second:
+Command:
+curl -sS -b /tmp/bookshop-user2.cookies -c /tmp/bookshop-user2.cookies -w '\nHTTP status: %{http_code}\n' -X PUT 'http://localhost:5000/customer/auth/review/1?review=Another%20reader%27s%20perspective.'
+
+Output:
+{"message":"Review added or updated","reviews":{"option1_user":"Updated after rereading.","option1_second":"Another reader's perspective."}}
+HTTP status: 200

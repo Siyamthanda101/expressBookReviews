@@ -1,0 +1,6 @@
+Command:
+curl -sS -w '\nHTTP status: %{http_code}\n' http://localhost:5000/review/1
+
+Output:
+{}
+HTTP status: 200
